@@ -8,7 +8,7 @@ const ContextProvider = (props) => {
             question: {
                 id: 0,
                 option_id: 0,
-                correct: true
+                correct: false
             }
         }
     ]);

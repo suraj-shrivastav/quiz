@@ -1,20 +1,28 @@
 import React, { useContext } from "react";
-import { createContext } from "react";
 import { Context } from "../../context/context";
 import "./quizpage.css";
 
 const QuizPage = ({ item }) => {
-    const { data, handleAnswerSelection, questionNo, handleNextQuestion, locked, score, showSolution, openSidebar } = useContext(Context);
-    return (
+    const { data, score, handleAnswerSelection, questionNo, handleNextQuestion, locked, showSolution, openSidebar, showFinalScore, formatTime, timeLeft } = useContext(Context);
 
-        <>
-            <div key={item.id}>
-                <h2>{item.description}</h2>
+    return (
+        <div>
+            <div className="quiz-container">
+            <div className="nav-container">
+                <div className="score-board">
+                    Score: {score}
+                </div>
                 <div>
-                    <h3>Options</h3>
+                    {formatTime(timeLeft)}
+                </div>
+            </div>
+            <div className="question-box">
+                <h3 className="question-title">{item.description}</h3>
+                <div className="options-container">
+                    <h4>Options:</h4>
                     <ul className={locked ? 'show-correct' : ''}>
                         {item.options.map((option) => (
-                            <div key={option.id}>
+                            <div key={option.id} className="option-wrapper">
                                 <input
                                     type="radio"
                                     id={`option_${option.id}`}
@@ -31,18 +39,23 @@ const QuizPage = ({ item }) => {
                             </div>
                         ))}
                     </ul>
-                    <div>
-                    </div>
                 </div>
-                {questionNo !== data.length - 1 ? <button onClick={handleNextQuestion} disabled={!locked}>Next</button> : <button>Show Result</button>}
-                {!openSidebar && locked && (<button id="toggleButton" onClick={() => { showSolution(item.detailed_solution); }}>
-                    Solution
-                </button>
-                )}
-
+                <div className="button-container">
+                    {questionNo !== data.length - 1 ? (
+                        <button onClick={handleNextQuestion} disabled={!locked}>Next</button>
+                    ) : (
+                        <button onClick={showFinalScore}>Show Result</button>
+                    )}
+                    {!openSidebar && locked && (
+                        <button id="toggleButton" onClick={() => showSolution(item.detailed_solution)}>
+                            Solution
+                        </button>
+                    )}
+                </div>
             </div>
-        </>
-    )
+        </div>
+        </div>
+    );
 }
 
 export default QuizPage;

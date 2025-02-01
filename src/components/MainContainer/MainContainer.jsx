@@ -3,21 +3,15 @@ import { Context } from "../../context/context";
 import QuizPage from "../QuizPage/QuizPage";
 import Sidebar from "../Sidebar/Sidebar";
 import "./mainContainer.css";
+import ReportPage from "../ReportPage/ReportPage";
 
 const MainContainer = () => {
-    const { data, questionNo, openSidebar, toggleSidebar, score, timeLeft, formatTime} = useContext(Context);
+    const { data, questionNo, openSidebar, toggleSidebar, score, timeLeft, formatTime, finalReport} = useContext(Context);
 
     return (
         <div className="Main-container">
-            <div className="nav-container">
-                <div className="score-board">
-                    Score: {score}
-                </div>
-                <div>
-                    {formatTime(timeLeft)}
-                </div>
-            </div>
-            
+            {!finalReport ?
+            <>
             <div className="main" style={{ marginRight: openSidebar ? '40%' : '0' }}>
                 {data[questionNo] && (
                     <QuizPage item={data[questionNo]} />
@@ -27,6 +21,12 @@ const MainContainer = () => {
             <div className={`sidebar ${openSidebar ? 'open' : ''}`}>
                 {openSidebar && <Sidebar />}
             </div>
+            </>
+            :
+            <div>
+                <ReportPage/>
+            </div>
+            }
         </div>
     );
 };

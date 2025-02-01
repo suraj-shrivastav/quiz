@@ -8,6 +8,7 @@ const ContextProvider = (props) => {
     const [score, setScore] = useState(0);
     const [openSidebar, setOpenSidebar] = useState(false);
     const [resultData, setResultData] = useState();
+    const [finalReport, setFinalReport] = useState(false);
 
     const [timeLeft, setTimeLeft] = useState(10 * 60);
 
@@ -135,10 +136,10 @@ const ContextProvider = (props) => {
         return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
     };
 
+    const showFinalScore=()=>{
+        setFinalReport(true);
+    }
 
-
-
-    //sidebar content display:
 
     const constextValue = {
         data,
@@ -157,7 +158,9 @@ const ContextProvider = (props) => {
         showSolution,
         resultData,
         timeLeft,
-        formatTime
+        formatTime,
+        finalReport,
+        showFinalScore,
     }
     return (
         <Context.Provider value={constextValue}>

@@ -1,57 +1,71 @@
-.question-container {
-    padding: 20px;
-    margin: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.quiz-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
 }
 
-/* Style for option containers */
-.option-container {
+.question-box {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 50%;
+    max-width: 600px;
+}
+
+.question-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.options-container {
+    margin-top: 15px;
+}
+
+.option-wrapper {
     margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.3s ease;
 }
 
-/* Hide default radio button */
 input[type="radio"] {
     display: none;
 }
 
-/* Style for labels containing options */
 label {
     display: block;
-    padding: 10px 15px;
+    padding: 12px;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 6px;
+    border: 2px solid #ddd;
+    background: #f8f9fa;
+    color: black;
+    font-weight: 600;
     cursor: pointer;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin: 5px 0;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease-in-out;
 }
 
-/* Hover effect for labels */
 label:hover {
-    background-color: #42404092;
+    background-color: #d3d3d3;
 }
 
-
-/* Style for correct answer when selected */
-input[type="radio"]:checked + label[data-correct="true"] {
+input[type="radio"]:checked+label[data-correct="true"] {
     background-color: #4caf50;
-    color: white;
+    color: rgb(0, 0, 0);
     border-color: #45a049;
 }
 
-/* Style for incorrect answer when selected */
-input[type="radio"]:checked + label[data-correct="false"] {
+input[type="radio"]:checked+label[data-correct="false"] {
     background-color: #f44336;
     color: white;
     border-color: #da190b;
 }
 
-/* Show correct answer when wrong option is selected */
 .show-correct label[data-correct="true"] {
     background-color: #4caf50;
     color: white;
@@ -59,16 +73,25 @@ input[type="radio"]:checked + label[data-correct="false"] {
     opacity: 0.7;
 }
 
-/* Button styles */
+.button-container {
+    margin-top: 20px;
+}
+
 button {
-    padding: 10px 20px;
-    margin: 10px 5px;
+    padding: 12px 20px;
+    border-radius: 6px;
     border: none;
-    border-radius: 4px;
     background-color: #2196f3;
     color: white;
+    font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease-in-out;
+    margin: 5px;
+}
+
+button:hover:not(:disabled) {
+    background-color: #1976d2;
 }
 
 button:disabled {
@@ -82,4 +105,16 @@ button:disabled {
 
 #toggleButton:hover {
     background-color: #f57c00;
+}
+
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 0;
 }

@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.app {
+    display: flex;
+}
+
+.main {
+    transition: margin-right 0.3s;
+    padding: 20px;
+    flex-grow: 1; /* Allow main to take available space */
+}
+
+.sidebar {
+    background-color: #313030;
+    height: 100%;
+    width: 40%;
+    position: fixed;
+    top: 0;
+    right: -40%;
+    overflow-x: hidden;
+    transition: right 0.3s;
+}
+
+.sidebar.open {
+    right: 0;
+}
+
+button {
+    margin-bottom: 20px;
+}
+
+
+/* nav-conatiner */
+

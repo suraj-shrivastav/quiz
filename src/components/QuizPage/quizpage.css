@@ -1,0 +1,85 @@
+.question-container {
+    padding: 20px;
+    margin: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for option containers */
+.option-container {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Hide default radio button */
+input[type="radio"] {
+    display: none;
+}
+
+/* Style for labels containing options */
+label {
+    display: block;
+    padding: 10px 15px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect for labels */
+label:hover {
+    background-color: #42404092;
+}
+
+
+/* Style for correct answer when selected */
+input[type="radio"]:checked + label[data-correct="true"] {
+    background-color: #4caf50;
+    color: white;
+    border-color: #45a049;
+}
+
+/* Style for incorrect answer when selected */
+input[type="radio"]:checked + label[data-correct="false"] {
+    background-color: #f44336;
+    color: white;
+    border-color: #da190b;
+}
+
+/* Show correct answer when wrong option is selected */
+.show-correct label[data-correct="true"] {
+    background-color: #4caf50;
+    color: white;
+    border-color: #45a049;
+    opacity: 0.7;
+}
+
+/* Button styles */
+button {
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 4px;
+    background-color: #2196f3;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+#toggleButton {
+    background-color: #ff9800;
+}
+
+#toggleButton:hover {
+    background-color: #f57c00;
+}

@@ -2,6 +2,7 @@ import { createContext, useState, useEffect } from "react";
 
 export const Context = createContext();
 const ContextProvider = (props) => {
+    const [start, setStart] = useState(false);
     const [data, setData] = useState([]);
     const [questionNo, setQuestionNo] = useState(0);
     const [answers, setAnswers] = useState([]);
@@ -13,10 +14,6 @@ const ContextProvider = (props) => {
     const [timeConsumed, setTimeConsumed] = useState(0);
     const [timeLeft, setTimeLeft] = useState(10 * 60);
     const [animate, setAnimate] = useState(false);
-
-
-
-
 
     useEffect(() => {
         const fetchData = async () => {
@@ -113,19 +110,21 @@ const ContextProvider = (props) => {
     //timer
 
     useEffect(() => {
+        if (!start) return;
+    
         const timer = setInterval(() => {
             setTimeLeft((prevTime) => {
                 if (prevTime <= 1) {
                     clearInterval(timer);
-                    // Handle time up scenario here
                     return 0;
                 }
                 return prevTime - 1;
             });
         }, 1000);
-
+    
         return () => clearInterval(timer);
-    }, []);
+    }, [start]);
+    
 
     const formatTime = (seconds) => {
         const minutes = Math.floor(seconds / 60);
@@ -163,6 +162,8 @@ const ContextProvider = (props) => {
 
 
     const constextValue = {
+        start,
+        setStart,
         data,
         setAnswers,
         handleAnswerSelection,

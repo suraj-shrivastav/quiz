@@ -1,14 +1,27 @@
-steps:
+# Quiz App
 
--fetchiing of data is done and it is displayed on the screen with the options to select the answer.
--the selected options are then stored in a array of objects which has question.id, option.id and option.is_correct(T/F).
--the next step would be to enhanhce the UI with some styling such as adding the css to correct answer and someting like points for the correct -answer to make it more interesting.
--the important thing that is yet to be done it the solution_show, resource_show, a page that will show the solution to the question.
+This is a React-based quiz application that fetches questions from an external API and provides users with an interactive platform to test their knowledge. The app not only evaluates user responses but also offers detailed analytics on performance, including time taken, accuracy, and more.
 
--an extra functinality is to add a gemini-bot feature to the page that will help to explain the topic with more clarity.
-    -the feature should be like a chat-icon, a btn for each question that onClick will take the question as prompt and explain it.
-    -the prompt will be fixed like `Explain me ${question}`, one the icon is clicked the sidebar.jsx will open that will show the detailed explaination about the question.
-    -the icon can only be clicked upon successfull submission of all the answers.
+## Features
 
--a grading system can also be provided like `score`>90%--> A, 80%<`score`<90% --> B, etc.
-poper effects if possible.
+- **Dynamic Question Fetching**: Questions, along with their options and solutions, are fetched from an external API: [https://api.jsonserve.com/Uw5CrX](https://api.jsonserve.com/Uw5CrX).
+- **Interactive Quiz Flow**: As users progress through the quiz, their scores increase with each correct answer, culminating in a final score display at the end.
+- **Performance Analysis**: The `ReportPage` component provides a comprehensive analysis of the user's performance, including metrics such as time taken, correct and incorrect answers, and overall accuracy.
+- **Solution Sidebar**: A sidebar reveals the solution for each question, which becomes accessible only after the question has been attempted.
+
+## Installation
+
+1. **Clone the Repository**:
+
+   npm git clone https://github.com/suraj-shrivastav/quiz.git
+   cd quiz
+   npm install
+   npm run dev
+
+## Images
+
+<img src="assets/pic1.png" alt="Quiz App Screenshot" width="600">
+<img src="assets/pic2.png" alt="Quiz App Screenshot" width="600">
+<img src="assets/pic3.png" alt="Quiz App Screenshot" width="600">
+<img src="assets/pic4.png" alt="Quiz App Screenshot" width="600">
+<img src="assets/pic5.png" alt="Quiz App Screenshot" width="600">

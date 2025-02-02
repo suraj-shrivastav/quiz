@@ -32,7 +32,10 @@ This is a React-based quiz application that fetches questions from an external A
 
 ## Video
 
-<p align="center">
-  <img src="assets/quizVdo.gif" alt="Quiz App Demo" width="600">
-</p>
+[![Watch the video](assets/quizVdo.gif)](https://youtu.be/4FuDG5PvtPs)
 
+
+## AI Tools: The Saviour  
+
+AI tools like ChatGPT and Claude.ai have been incredibly helpful during this project, especially in the CSS development.  
+The **ReportPage** was heavily built with the assistance of these tools.  

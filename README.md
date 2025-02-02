@@ -20,8 +20,12 @@ This is a React-based quiz application that fetches questions from an external A
 
 ## Images
 
-<img src="assets/pic1.png" alt="Quiz App Screenshot" width="600">
+<p align="center">
+
+<img src="assets/pic1.png" alt="Quiz App Screenshot" width="600" >
 <img src="assets/pic2.png" alt="Quiz App Screenshot" width="600">
 <img src="assets/pic3.png" alt="Quiz App Screenshot" width="600">
 <img src="assets/pic4.png" alt="Quiz App Screenshot" width="600">
 <img src="assets/pic5.png" alt="Quiz App Screenshot" width="600">
+
+</p>

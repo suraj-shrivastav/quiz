@@ -32,6 +32,7 @@ This is a React-based quiz application that fetches questions from an external A
 
 ## Video
 
-<p align="center>
-<img src="assets/quizVdo.gif" alt="Quiz App Demo" width="600">
+<p align="center">
+  <img src="assets/quizVdo.gif" alt="Quiz App Demo" width="600">
 </p>
+

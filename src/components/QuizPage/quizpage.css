@@ -118,3 +118,21 @@ button:disabled {
     position: absolute;
     top: 0;
 }
+
+.score-board {
+    margin-left: 5%;
+}
+
+.score-board::before {
+    content: "🎯";
+    margin-right: 5px;
+}
+
+.timer{
+    margin-right: 5%;
+}
+
+.timer::before{
+    content: "⏳";
+    margin-right: 5px;
+}

@@ -6,7 +6,7 @@ import "./mainContainer.css";
 import ReportPage from "../ReportPage/ReportPage";
 
 const MainContainer = () => {
-    const { data, questionNo, openSidebar, toggleSidebar, score, timeLeft, formatTime, finalReport} = useContext(Context);
+    const { data, questionNo, openSidebar, score, finalReport} = useContext(Context);
 
     return (
         <div className="Main-container">
@@ -24,7 +24,7 @@ const MainContainer = () => {
             </>
             :
             <div>
-                <ReportPage/>
+                <ReportPage correct={score*10} incorrect={100-score*10}/>
             </div>
             }
         </div>

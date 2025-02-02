@@ -14,7 +14,7 @@ body {
 }
 
 .sidebar {
-    background-color: #313030;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
     height: 100vh;
     width: 40%;
     position: fixed;

@@ -4,17 +4,18 @@ export const Context = createContext();
 const ContextProvider = (props) => {
     const [data, setData] = useState([]);
     const [questionNo, setQuestionNo] = useState(0);
+    const [answers, setAnswers] = useState([]);
     const [locked, setLocked] = useState(false);
     const [score, setScore] = useState(0);
     const [openSidebar, setOpenSidebar] = useState(false);
     const [resultData, setResultData] = useState();
     const [finalReport, setFinalReport] = useState(false);
-
+    const [timeConsumed, setTimeConsumed] = useState(0);
     const [timeLeft, setTimeLeft] = useState(10 * 60);
+    const [animate, setAnimate] = useState(false);
 
 
-    const [answers, setAnswers] = useState([
-    ]);
+
 
 
     useEffect(() => {
@@ -36,12 +37,6 @@ const ContextProvider = (props) => {
         fetchData();
     }, []);
 
-    const showAnswer = () => {
-        answers.map((answer) => {
-            console.log("Answer", answer.question.id, answer.question.option_id, answer.question.correct);
-        });
-        console.log(answers);
-    };
 
     const handleAnswerSelection = (item, option) => {
 
@@ -77,6 +72,7 @@ const ContextProvider = (props) => {
         setQuestionNo(questionNo + 1);
         setOpenSidebar(false);
         setLocked(false);
+
     };
 
     const showSolution = (solution) => {
@@ -111,6 +107,7 @@ const ContextProvider = (props) => {
         // Log the answers and result data for debugging
         console.log("Answers", answers);
         console.log(resultData);
+
     };
 
     //timer
@@ -136,15 +133,38 @@ const ContextProvider = (props) => {
         return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
     };
 
-    const showFinalScore=()=>{
+    const showFinalScore = () => {
         setFinalReport(true);
+        if (questionNo === data.length - 1) {
+            setTimeConsumed(data.length * 60 - timeLeft);
+            setFinalReport(true);
+        }
+        console.log("time consumed is: ", timeConsumed);
     }
+
+    //report page:
+
+    useEffect(() => {
+        setAnimate(true);
+        const timer = setTimeout(() => setAnimate(false), 1500);
+        return () => clearTimeout(timer);
+    }, []);
+
+    // Ensure formatTime is available, provide a fallback if it's not
+    const formatTimeDisplay = (time) => {
+        if (typeof formatTime === 'function') {
+            return formatTime(time);
+        }
+        // Fallback time formatter
+        const minutes = Math.floor(time / 60);
+        const seconds = time % 60;
+        return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    };
 
 
     const constextValue = {
         data,
         setAnswers,
-        showAnswer,
         handleAnswerSelection,
         questionNo,
         setQuestionNo,
@@ -161,6 +181,10 @@ const ContextProvider = (props) => {
         formatTime,
         finalReport,
         showFinalScore,
+        timeConsumed,
+        animate,
+        setAnimate,
+        formatTimeDisplay
     }
     return (
         <Context.Provider value={constextValue}>

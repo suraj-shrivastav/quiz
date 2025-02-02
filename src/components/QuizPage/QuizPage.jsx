@@ -4,7 +4,6 @@ import "./quizpage.css";
 
 const QuizPage = ({ item }) => {
     const { data, score, handleAnswerSelection, questionNo, handleNextQuestion, locked, showSolution, openSidebar, showFinalScore, formatTime, timeLeft } = useContext(Context);
-
     return (
         <div>
             <div className="quiz-container">
@@ -12,14 +11,13 @@ const QuizPage = ({ item }) => {
                 <div className="score-board">
                     Score: {score}
                 </div>
-                <div>
+                <div className="timer">
                     {formatTime(timeLeft)}
                 </div>
             </div>
             <div className="question-box">
                 <h3 className="question-title">{item.description}</h3>
                 <div className="options-container">
-                    <h4>Options:</h4>
                     <ul className={locked ? 'show-correct' : ''}>
                         {item.options.map((option) => (
                             <div key={option.id} className="option-wrapper">
